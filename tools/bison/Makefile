@@ -18,6 +18,8 @@ HOST_BUILD_PARALLEL:=1
 
 include $(INCLUDE_DIR)/host-build.mk
 
+HOST_CFLAGS += -std=gnu17
+
 HOST_CONFIGURE_ARGS += --enable-threads=posix --disable-nls
 
 define Host/Clean
