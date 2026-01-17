@@ -20,6 +20,8 @@ HOST_BUILD_PARALLEL:=1
 
 include $(INCLUDE_DIR)/host-build.mk
 
+HOST_CFLAGS += -std=gnu17
+
 ifneq ($(shell $(HOSTCC) --version | grep clang),)
   HOST_CFLAGS += -D__GNUC_PREREQ\(...\)=0 -Dloff_t=off_t
 endif
