@@ -217,6 +217,7 @@ platform_do_upgrade() {
 	*snand*)
 		nand_do_upgrade "$1"
 		;;
+	airopi,ax3|\
 	cmcc,rax3000m-emmc |\
 	cmcc,xr30-emmc |\
 	*emmc*)
