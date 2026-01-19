@@ -138,7 +138,7 @@
 		phy-handle = <&int_gbe_phy>;
 	};
 
-	mdio: mdio-bus {
+	mdio-bus {
 		#address-cells = <1>;
 		#size-cells = <0>;
 
@@ -148,7 +148,6 @@
 			nvmem-cells = <&phy_calibration>;
 			nvmem-cell-names = "phy-cal-data";
 			phy-mode = "gmii";
-			// phy-is-integrated;
 			pinctrl-names = "gbe-led";
 			pinctrl-0 = <&gbe_leds_pins>;
 		};
@@ -156,11 +155,9 @@
 		ext_2p5g_phy: ethernet-phy@7 {
 			compatible = "ethernet-phy-ieee802.3-c45";
 			reg = <7>;
-			interrupt-parent = <&pio>;
-			interrupts = <38 IRQ_TYPE_LEVEL_LOW>;
+			phy-mode = "2500base-x";
 			pinctrl-names = "default";
 			pinctrl-0 = <&ephy_2p5g_pins>;
-			realtek,aldps-enable;
 			reset-assert-us = <20000>;
 			reset-deassert-us = <100000>;
 			reset-gpios = <&pio 39 GPIO_ACTIVE_LOW>;
@@ -180,10 +177,10 @@
 };
 */
 &hnat {
-	mtketh-wan = "eth0";
-	mtketh-lan = "eth1";
+	mtketh-lan = "eth0";
+	mtketh-wan = "eth1";
 	mtketh-max-gmac = <2>;
-	ext-devices-prefix = "usb", "wwan";
+	// ext-devices-prefix = "usb", "wwan";
 	status = "okay";
 };
 
