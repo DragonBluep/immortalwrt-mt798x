@@ -665,6 +665,9 @@ static int mt7981_drv_vbus_pins[] = { 14, };
 static int mt7981_drv_vbus_funcs[] = { 1, };
 
 /* EMMC */
+static int mt7981_emmc_4_pins[] = { 16, 17, 18, 19, 24, 25, };
+static int mt7981_emmc_4_funcs[] = { 2, 2, 2, 2, 2, 2, };
+
 static int mt7981_emmc_45_pins[] = { 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, };
 static int mt7981_emmc_45_funcs[] = { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, };
 
@@ -811,6 +814,8 @@ static const struct group_desc mt7981_groups[] = {
         PINCTRL_PIN_GROUP("udi", mt7981_udi),
     /*  @GPIO(14) DRV_VBUS(1) */
         PINCTRL_PIN_GROUP("drv_vbus", mt7981_drv_vbus),
+    /* @GPIO(16,17,18,19,24,25): EMMC_DATx, EMMC_CLK, EMMC_CMD */
+        PINCTRL_PIN_GROUP("emmc_4", mt7981_emmc_4),
     /*  @GPIO(15,25): EMMC(2) */
         PINCTRL_PIN_GROUP("emmc_45", mt7981_emmc_45),
     /*  @GPIO(16,21): SNFI(3) */
@@ -910,7 +915,7 @@ static const char *mt7981_i2c_groups[] = { "i2c0_0", "i2c0_1", "u2_phy_i2c",
 static const char *mt7981_pcm_groups[] = { "pcm", };
 static const char *mt7981_udi_groups[] = { "udi", };
 static const char *mt7981_usb_groups[] = { "drv_vbus", };
-static const char *mt7981_flash_groups[] = { "emmc_45", "snfi", };
+static const char *mt7981_flash_groups[] = { "emmc_4", "emmc_45", "snfi", };
 static const char *mt7981_ethernet_groups[] = { "smi_mdc_mdio", "gbe_ext_mdc_mdio",
 	"wf0_mode1", "wf0_mode3", "mt7531_int", };
 static const char *mt7981_ant_groups[] = { "ant_sel", };
